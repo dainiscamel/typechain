@@ -46,7 +46,7 @@ const genesisBlock: Block = new Block(0, "2020202020202", "", "Hello", 123456);
 let blockchain: Block[] = [genesisBlock];
 
 const getBlockchain = (): Block[] => blockchain;
-// 가장 나중(=최신)에 만들어진 블럭 
+// 가장 나중(=최근)에 만들어진 블럭 
 const getLatestBlock = (): Block => blockchain[blockchain.length - 1];
 
 const getNewTimeStamp = (): number => Math.round(new Date().getTime() / 1000);
@@ -69,7 +69,7 @@ const createNewBlock = (data: string): Block => {
     newTimestamp
   );
 
-  //createNewBlock에 addBlock 연결 (= 새로운 블록을 만들때 블록체인에 추가.)
+  //createNewBlock에 addBlock 연결 (= 새로운 블록을 만들때 블록이 유효하다면 블록체인에 추가.)
   addBlock(newBlock);
   return newBlock;
 };
@@ -102,7 +102,7 @@ const isBlockValid = (candidateBlock: Block, previousBlock: Block): boolean => {
 };
 
 const addBlock = (candidateBlock: Block): void => {
-  // 블록이 유요하다면
+  // 블록이 유효하다면
   if (isBlockValid(candidateBlock, getLatestBlock())) {
     // 블록체인에 연결
     blockchain.push(candidateBlock);
