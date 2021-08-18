@@ -1,8 +1,7 @@
-#TypeChain
 
-## typescript를 이용한 블록체인 만들기
+# typescript를 이용한 블록체인 만들기
 
-# Block Chain 생성 과정
+## Block Chain 생성 과정
 
 - 블록 클래스 생성 (메소드,변수,constructor포함)
 - calculateBlockHash (=crypto-js를 사용하여 해쉬키 발급)
